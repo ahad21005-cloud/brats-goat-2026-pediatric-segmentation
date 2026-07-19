@@ -29,9 +29,11 @@ Training was conducted on the NUST SINES High-Performance Computing (HPC) cluste
 ## Preliminary Validation Results
 Our current baseline demonstrates strong performance, particularly in delineating enhancing tumor and edema regions. 
 
-| Fold | Mean Validation Dice |
-| :--- | :--- |
-| Fold 0 | 0.827 |
-| Fold 1 | 0.830 |
-| Fold 4 | 0.845 |
-*(Folds 2 and 3 are currently finalizing training).*
+| Fold | Overall Mean Dice | NCR Dice | ED Dice | ET Dice |
+| :--- | :---------------: | :------: | :-----: | :-----: |
+| Fold 0 | 0.827 | 0.770 | 0.850 | 0.862 |
+| Fold 1 | 0.830 | 0.780 | 0.850 | 0.861 |
+| Fold 2 | 0.831 | 0.780 | 0.849 | 0.864 |
+| Fold 3 | 0.824 | 0.758 | 0.853 | 0.862 |
+| Fold 4 (Best) | **0.845** | **0.795** | **0.860** | **0.878** |
+| **Mean (5-fold)** | **0.831** | **0.776** | **0.853** | **0.866** |
