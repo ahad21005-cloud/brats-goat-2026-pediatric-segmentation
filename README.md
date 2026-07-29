@@ -44,7 +44,8 @@ Activate the pre-configured Conda environment:
 ```bash
 conda activate brats
 
-## Preliminary Validation Results
+
+**### Preliminary Validation Results**
 Our current baseline demonstrates strong performance, particularly in delineating enhancing tumor and edema regions. 
 
 | Fold | Overall Mean Dice | NCR Dice | ED Dice | ET Dice |
