@@ -18,13 +18,31 @@ The model was trained on the **Dataset 503 (BraTS Pediatric Tumors)** cohort usi
 ##  Infrastructure & Engineering Optimizations
 Training was conducted on the NUST SINES High-Performance Computing (HPC) cluster using NVIDIA A10G (24GB VRAM) GPUs. To guarantee stable, multi-day 1000-epoch training runs under strict 72-hour SLURM wall-time limits, we implemented the following critical cluster optimizations:
 
-* **Worker Down-regulation:** Reduced parallel data-augmentation workers (`nnUNet_n_proc_DA=2`) to resolve `ArrayMemoryError` multi-threading crashes during 3D spatial augmentation.
+* **Worker Down-regulation:** Reduced parallel data-augmentation workers (`nnUNet_n_proc_DA=4`) to resolve `ArrayMemoryError` multi-threading crashes during 3D spatial augmentation.
 * **Compilation Bypass:** Disabled PyTorch dynamic compilation (`TORCHDYNAMO_DISABLE=1` and `nnUNet_compile=0`) to prevent graph-compilation instability over multi-day workloads.
 
 ##  Repository Contents
 * `/slurm_scripts/`: Custom bash scripts used for cluster deployment, including the bulletproof environment path activation and automatic resume logic.
 * `/src/`: (Coming Soon) Inference pipeline and ensembling logic.
 * **Docker Submission:** The finalized 5-fold ensemble model will be containerized and pushed to the official Synapse registry for the July 23, 2026 hidden test-set evaluation.
+
+* ## Quickstart Guide for New Students
+
+### 1. Directory Structure
+Set up your project directory structure as follows:
+
+peds_brain_project/
+├── data/
+│   ├── nnUNet_raw/
+│   │   └── Dataset503_Pediatric/
+│   ├── nnUNet_preprocessed/
+│   └── nnUNet_results/
+└── slurm_scripts/
+
+### 2. Environment Setup
+Activate the pre-configured Conda environment:
+```bash
+conda activate brats
 
 ## Preliminary Validation Results
 Our current baseline demonstrates strong performance, particularly in delineating enhancing tumor and edema regions. 
