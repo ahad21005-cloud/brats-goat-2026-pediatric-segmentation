@@ -32,7 +32,7 @@ Training was conducted on the NUST SINES High-Performance Computing (HPC) cluste
 ## Repository Contents
 
 * `/slurm_scripts/`: Custom bash scripts used for cluster deployment, including bulletproof environment path activation and automatic resume logic.
-* `/src/`: (Coming Soon) Inference pipeline and ensembling logic.
+* **End-to-End Pipeline Scripts:** All numbered Python and Bash scripts (00_env.sh through 05_fold0_best_worst_cases.py) for Synapse download, dataset conversion, A10G SLURM training, and evaluation are available directly in the root repository.
 * **Docker Submission:** The finalized 5-fold ensemble model will be containerized and pushed to the official Synapse registry for the July 23, 2026 hidden test-set evaluation.
 
 ---
